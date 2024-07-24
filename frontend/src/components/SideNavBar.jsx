@@ -34,21 +34,17 @@ const SideNavBar = () => {
             <NavLink exact to="/addvendor" activeClassName="activeClicked">
               <CDBSidebarMenuItem className='iconClicked' icon="fa-solid fa-users">Create Vendor</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem className='iconClicked' icon="chart-line">
-                Trade
+            <NavLink exact to="/sendemail" activeClassName="activeClicked">
+              <CDBSidebarMenuItem className='iconClicked' icon="fa-regular fa-envelope">
+                Send Email To Vendor
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem className='iconClicked' icon="history">
-                History
+            <NavLink exact to="/viewmails" activeClassName="activeClicked">
+              <CDBSidebarMenuItem className='iconClicked' icon="fa-regular fa-paper-plane">
+              View Sent Emails
               </CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/analytics" activeClassName="activeClicked">
-              <CDBSidebarMenuItem className='iconClicked' icon="wallet">
-                Wallet
-              </CDBSidebarMenuItem>
-            </NavLink>
+            
             <NavLink
               exact
               to="/hero404"
