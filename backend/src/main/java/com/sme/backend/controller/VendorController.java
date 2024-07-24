@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/vendors")
+@CrossOrigin("http://localhost:3000")
 public class VendorController {
     @Autowired
     private VendorService vendorService;
