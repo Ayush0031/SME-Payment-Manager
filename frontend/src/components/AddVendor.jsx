@@ -13,7 +13,7 @@ function AddVendor() {
             .then(response => {
                 const data = response.data;
                 console.log("Email sent:", data.email);
-                alert("Employee created with email -> " + data.email)
+                alert("Vendor created with email -> " + data.email)
             });
             setName('');
             setEmail('');
@@ -28,7 +28,7 @@ function AddVendor() {
         
     
     return (
-        <div className='d-flex' style={{ backgroundColor: "black", height: "100vh" }}>
+        <div className='d-flex' style={{ height: "100vh" }}>
             <div className='col-auto'>
                 <SideNavBar/>
             </div>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SideNavBar from './SideNavBar';
-// Import the CSS file
-
+import { Button } from 'react-bootstrap';
 const SendEmail = () => {
     const [vendors, setVendors] = useState([]);
-    const [selectedVendor, setSelectedVendor] = useState('');
+    const [selectedVendors, setSelectedVendors] = useState([]);
 
     useEffect(() => {
         fetchVendors();
@@ -20,19 +19,28 @@ const SendEmail = () => {
         }
     };
 
+    const handleCheckboxChange = (email) => {
+        setSelectedVendors((prevSelected) =>
+            prevSelected.includes(email)
+                ? prevSelected.filter((v) => v !== email)
+                : [...prevSelected, email]
+        );
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!selectedVendor) {
-            alert('Please select a vendor.');
+        if (selectedVendors.length === 0) {
+            alert('Please select at least one vendor.');
             return;
         }
 
         try {
-            const vendor =  vendors.find(vendor => vendor.email === selectedVendor);
-            await axios.post('http://localhost:8080/api/emails',vendor);
-            console.log(vendor);
-            alert('Email sent successfully!');
-            setSelectedVendor('');
+            const selectedVendorObjects = vendors.filter(vendor => selectedVendors.includes(vendor.email));
+            await Promise.all(selectedVendorObjects.map(vendor =>
+                axios.post('http://localhost:8080/api/emails', vendor)
+            ));
+            alert('Emails sent successfully!');
+            setSelectedVendors([]);
         } catch (error) {
             console.error('Error sending email:', error);
             alert('Failed to send email.');
@@ -40,32 +48,41 @@ const SendEmail = () => {
     };
 
     return (
-        <div className='d-flex' style={{ backgroundColor: "black", height: "100vh" }}>
+        <div className='d-flex' style={{ height: "100vh" }}>
             <div className='col-auto'>
                 <SideNavBar />
             </div>
             <div className="send-email-page">
-                <div>
-                    <h1 style={{ color: "#77f534", }}>Send Payment Email</h1>
-                </div>
+
 
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="vendor-select">Select Vendor:</label>
-                        <select
-                            id="vendor-select"
-                            value={selectedVendor}
-                            onChange={(e) => setSelectedVendor(e.target.value)}
-                        >
-                            <option value="">--Select Vendor--</option>
-                            {vendors.map(vendor => (
-                                <option key={vendor.email} value={vendor.email}>
+                    <div className='list-container m-5'>
+                        <div>
+                            <h1 style={{ color: "#77f534", }}>Send Payment Email</h1>
+                        </div>
+                        {vendors.length ? vendors.map((vendor) => (
+                            <div className='m-2' key={vendor.email}>
+                                <input
+                                    type="checkbox"
+                                    id={`vendor-${vendor.email}`}
+                                    value={vendor.email}
+                                    checked={selectedVendors.includes(vendor.email)}
+                                    onChange={() => handleCheckboxChange(vendor.email)}
+                                />
+                                <label className='m-2' htmlFor={`vendor-${vendor.email}`}>
                                     {vendor.name} - {vendor.email}
-                                </option>
-                            ))}
-                        </select>
+                                </label>
+                            </div>
+                        )) : <h4>Add vendors to send</h4>}
                     </div>
-                    <button type="submit">Send Payment Email</button>
+                    {
+                        vendors.length ? <div className='d-flex justify-content-center'>
+                            <Button variant="primary" type="submit" style={{ backgroundColor: "#77f534" }} className="mt-3">
+                                Add Employee
+                            </Button>
+                        </div> : " "
+                    }
+
                 </form>
             </div>
         </div>

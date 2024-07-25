@@ -22,7 +22,7 @@ const ViewSentEmail = () => {
     }
 
     return (
-        <div className='d-flex' style={{ backgroundColor: "black", height: "100vh" }}>
+        <div className='d-flex' style={{  height: "100vh" }}>
             <div className='col-auto'>
                 <SideNavBar />
             </div>
