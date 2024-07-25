@@ -48,7 +48,7 @@ const SendEmail = () => {
     };
 
     return (
-        <div className='d-flex' style={{ height: "100vh" }}>
+        <div className='d-flex' style={{ backgroundColor:"#FFDAB9",height: "100vh" }}>
             <div className='col-auto'>
                 <SideNavBar />
             </div>
@@ -58,7 +58,7 @@ const SendEmail = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='list-container m-5'>
                         <div>
-                            <h1 style={{ color: "#77f534", }}>Send Payment Email</h1>
+                            <h5 style={{ color: "#CE88F8", }}>Send Payment Email</h5>
                         </div>
                         {vendors.length ? vendors.map((vendor) => (
                             <div className='m-2' key={vendor.email}>
@@ -77,8 +77,8 @@ const SendEmail = () => {
                     </div>
                     {
                         vendors.length ? <div className='d-flex justify-content-center'>
-                            <Button variant="primary" type="submit" style={{ backgroundColor: "#77f534" }} className="mt-3">
-                                Add Employee
+                            <Button variant="primary" type="submit" style={{ backgroundColor: "#CE88F8" }} className="mt-3">
+                                Send Mail
                             </Button>
                         </div> : " "
                     }

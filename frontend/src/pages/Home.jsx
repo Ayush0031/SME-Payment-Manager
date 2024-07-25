@@ -34,12 +34,12 @@ function Home() {
         }
     };
     return (
-        <div className='d-flex' style={{ height: "100vh", width: "100vw" }}>
+        <div className='d-flex' style={{backgroundColor:"#FFDAB9", height: "100vh", width: "100vw" }}>
             <div className='col-auto'>
                 <SideNavBar />
             </div>
             <div className="home-page d-flex col-md-7 col-xm-4">
-                <h1 style={{ color: "#77f534" }}>SME Payment Management System</h1>
+                <h1 style={{ color: "#CE88F8" }}>SME Payment Management System</h1>
 
                 <di className="lists">
                     <Container>

@@ -22,14 +22,14 @@ const ViewSentEmail = () => {
     }
 
     return (
-        <div className='d-flex' style={{  height: "100vh" }}>
+        <div className='d-flex' style={{backgroundColor:"#FFDAB9",  height: "100vh" }}>
             <div className='col-auto'>
                 <SideNavBar />
             </div>
            
             <div className=''>
                 <div className='d-flex justify-content-center'>
-                <h1 style={{color:"#77f534"}}> View Emails Sent to Vendors</h1>
+                <h1 style={{color:"#CE88F8"}}> View Emails Sent to Vendors</h1>
                 </div>
                 <Table striped bordered hover variant="dark" className='m-5 p-5'>
                     <thead>

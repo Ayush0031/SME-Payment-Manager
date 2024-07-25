@@ -18,8 +18,8 @@ const SideNavBar = () => {
       <CDBSidebar textColor="#fff" backgroundColor="#1a1e1c">
         <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
         
-        <h3 style={{color: "#b7dd4f"}}>SME</h3>
-        <h5 style={{color: "#b7dd4f"}}>Payment Manager</h5>
+        <h3 style={{color: "#CE88F8"}}>SME</h3>
+        <h5 style={{color: "#CE88F8"}}>Payment Manager</h5>
         </CDBSidebarHeader>
 
         <CDBSidebarContent className="sidebar-content">

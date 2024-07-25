@@ -87,3 +87,6 @@
   border-radius: 15px;
   background-color: #fff;
 }
+.iconClicked:hover{
+  color:#CE88F8;
+}
